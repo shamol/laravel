@@ -66,9 +66,7 @@ Route::group(array('before' => 'auth'), function() {
         'uses' => 'PostController@editPostAction'
     ));
 
-    Route::any('testAjax', array(
-        'as' => 'post/editAjax',
-        'uses' => 'PostController@postHelloAction'
-    ));
+
+    Route::resource('comment','CommentController');
 });
 

@@ -61,4 +61,5 @@ label, input, .error
 .error
 {
     color : #ef7c61;
+    width: 100%;
 }

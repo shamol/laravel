@@ -19,7 +19,8 @@ class CommentController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		echo "hello";
+        exit;
 	}
 
 	/**
@@ -29,7 +30,40 @@ class CommentController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$user_id = Auth::user()->id;
+        $post_id = Input::get('post_id');
+
+        $validator = Validator::make(
+            Input::all(),
+            array(
+                'comment' => 'required'
+            )
+        );
+
+        if($validator->passes()) {
+            $comment = new Comment;
+
+            $comment->user_id = $user_id;
+            $comment->post_id = $post_id;
+            $comment->comment_body = Input::get('comment');
+
+            //dd($comment);
+
+            if ($comment->save()) {
+                return Redirect::to('postDetail/'.$post_id)
+                    ->with(array('success' => 'Your comment has been saved'));
+            }
+            else {
+                return Redirect::to('postDetail/'.$post_id)
+                    ->with(array('failure' => 'Sorry, comment could not be saved'));
+            }
+
+        }
+        else {
+            return Redirect::to('postDetail/'.$post_id)
+                ->withErrors($validator)
+                ->withInput(Input::all());
+        }
 	}
 
 	/**
