@@ -93,8 +93,6 @@ class PostController extends BaseController {
             }
         }
 
-
-
         $user = Auth::user();
         /*$post = Post::find($id);
         var_dump($post);
@@ -122,6 +120,13 @@ class PostController extends BaseController {
     }
 
     public function getPostDetail($id){
+        $post = Post::find($id);
+
+        return View::make('posts.detailPost', array(
+           'id' => $id,
+            'post' => $post
+        ));
+        //dd($post);
 
     }
 }

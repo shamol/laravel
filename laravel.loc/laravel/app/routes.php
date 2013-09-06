@@ -16,6 +16,11 @@ Route::any('/', array(
     'uses' => 'HomeController@showAllPosts'
 ));
 
+Route::any('postDetail/{id}', array(
+    'as' => 'post/detail',
+    'uses' => 'PostController@getPostDetail'
+));
+
 Route::group(array('before' => 'guest'), function()
 {
     Route::any('login', array(
