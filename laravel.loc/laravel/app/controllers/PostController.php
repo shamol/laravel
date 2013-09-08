@@ -30,7 +30,6 @@ class PostController extends BaseController {
                             'error' => 'Sorry, your post could not be saved'
                         ));
                 }
-
             }
             else {
                 return Redirect::route('post/new')

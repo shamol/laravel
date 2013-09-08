@@ -42,12 +42,16 @@ class CommentController extends \BaseController {
 
         if($validator->passes()) {
             $comment = new Comment;
+            //$file = Input::file('file');
 
             $comment->user_id = $user_id;
             $comment->post_id = $post_id;
             $comment->comment_body = Input::get('comment');
 
-            //dd($comment);
+           /* $filename = $file->getClientOriginalExtension('file');
+            $dest = 'assets/img/';
+            $file->move($dest,$file->getClientOriginalName());
+            dd($filename);*/
 
             if ($comment->save()) {
                 return Redirect::to('postDetail/'.$post_id)

@@ -28,7 +28,7 @@ class UserController extends BaseController {
         if(Input::server('REQUEST_METHOD') == 'POST') {
             $validator = Validator::make(Input::all(), array(
                 'email' => array('required','email'),
-                'username' => array('required','min:5'),
+                'username' => array('required','min:5','unique:user'),
                 'password' => 'required'
             ));
 
@@ -75,5 +75,4 @@ class UserController extends BaseController {
         Auth::logout();
         return Redirect::route('user/login');
     }
-
 }

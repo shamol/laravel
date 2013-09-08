@@ -32,5 +32,11 @@
 	"config": {
 		"preferred-install": "dist"
 	},
+
+    "require": {
+        "laravel/framework": "4.0.*",
+        "way/generators": "dev-master"
+    },
+
 	"minimum-stability": "dev"
 }

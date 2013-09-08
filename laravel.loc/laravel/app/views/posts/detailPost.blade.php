@@ -15,7 +15,7 @@
             <p>{{ $post->message}}</p>
 
             @if(Auth::check())
-                {{ Form::open(array('url' => 'comment')) }}
+                {{ Form::open(array('url' => 'comment', 'files' => true)) }}
                     {{ Form::label('comment', 'Comment')}}
                     {{ Form::text('comment') }}
                     @if($error = $errors->first('comment'))
