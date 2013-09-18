@@ -68,5 +68,6 @@ Route::group(array('before' => 'auth'), function() {
 
 
     Route::resource('comment','CommentController');
+    Route::resource('image', 'ImageController');
 });
 

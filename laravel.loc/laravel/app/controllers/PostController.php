@@ -36,7 +36,6 @@ class PostController extends BaseController {
                     ->withErrors($validator)
                     ->withInput(Input::all());
             }
-
         }
         else {
             return View::make('posts.newPost');
